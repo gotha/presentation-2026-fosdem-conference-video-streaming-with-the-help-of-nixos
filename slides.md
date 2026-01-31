@@ -11,14 +11,6 @@ date: January 31, 2026
 - mixos on FOSDEM boxes
 - future of the project
 
----
-
-## $(cat /etc/passwd)
-
-```
-dexterlb:x:1000:1000:Angel Angelov:/github.com/dexterlb
-gotha:x:1001:1001:Hristo Georgiev:/hgeorgiev.com
-```
 
 ---
 
@@ -101,3 +93,9 @@ gotha:x:1001:1001:Hristo Georgiev:/hgeorgiev.com
 
 ## Thank you!
 
+$(cat /etc/passwd)
+
+```
+dexterlb:x:1000:1000:Angel Angelov:/github.com/dexterlb
+gotha:x:1001:1001:Hristo Georgiev:/hgeorgiev.com
+```
