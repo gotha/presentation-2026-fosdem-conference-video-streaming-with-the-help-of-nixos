@@ -1,6 +1,6 @@
 ---
 author: Angel Angelov, gotha
-title: Building unix-like operating systems the nix way
+title: Conference video streaming with the help of NixOS
 date: January 31, 2026
 ---
 
