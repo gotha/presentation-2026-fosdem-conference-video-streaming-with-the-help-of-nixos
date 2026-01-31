@@ -88,10 +88,10 @@ gotha:x:1001:1001:Hristo Georgiev:/hgeorgiev.com
 
 ## Deployment (pt 2)
 
-- Apparently, `nixos-generators` doesn't do much:
+- `nixos-generators` doesn't do much:
     - it adds some target-specific nixos modules
     - it calls host.config.system.build.${imageFormat}
-- This is kind-of incompatible with subsequent redeploys
+- This is incompatible with subsequent redeploys
     - the `nixosConfiguration` doesn't contain the target-specific modules
     - so they don't get deployed by `deploy-rs`
 - So we made yet another tool: [deploy-o-matic](https://github.com/dexterlb/deploy-o-matic)
