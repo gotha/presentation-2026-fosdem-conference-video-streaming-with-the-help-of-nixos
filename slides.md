@@ -1,5 +1,5 @@
 ---
-author: Angel Angelov, gotha
+author: Angel Angelov (dexterlb), Hristo Georgiev (gotha)
 title: Conference video streaming with the help of NixOS
 date: January 31, 2026
 ---
@@ -54,10 +54,50 @@ gotha:x:1001:1001:Hristo Georgiev:/hgeorgiev.com
 
 ---
 
-## Take it away dexterlb
+## FOSDEM video box
+
+- hardware redundancy
+    - just replace the box with an identical one
+- relatively cheap (400EUR)
+- new revision can stream a single room with one box
 
 ---
 
+## FOSDEM video box
+
+- lots of software that supports the custom hardware
+- we packaged everything to work with mixos
+- mixos runs on the FOSDEM box!
+
+---
+
+## Deployment
+
+- For a first boot, we just generate a disk image
+    - `nixos-generators`
+
+- Iteration and regular deployment
+    - Our flake exports `nixosConfigurations`
+    - Deploy with
+    ```
+        nixos-rebuild switch --flake '.#foo' --target-host foo.example.com
+    ```
+    - Or deploy with `deploy-rs`
+
+---
+
+## Deployment (pt 2)
+
+- Apparently, `nixos-generators` doesn't do much:
+    - it adds some target-specific nixos modules
+    - it calls host.config.system.build.${imageFormat}
+- This is kind-of incompatible with subsequent redeploys
+    - the `nixosConfiguration` doesn't contain the target-specific modules
+    - so they don't get deployed by `deploy-rs`
+- So we made yet another tool: [deploy-o-matic](https://github.com/dexterlb/deploy-o-matic)
+    - just a few nix functions that generate `nixosConfigurations` and image packages
+
+---
 
 ## Thank you!
 
